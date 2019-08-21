@@ -1,4 +1,4 @@
-import {NUM_ADD,NUM_SUBSTRACT} from "../actionTypes"
+import {NUM_ADD,NUM_SUBSTRACT,NUM_INIT} from "../actionTypes"
 
 // 1 定义默认数据
 const defaultState = {
@@ -25,6 +25,10 @@ const defaultState = {
       newState.num -=action.value;
       // 把新的数据return出去
     return newState;
-    }
+    }else if(action.type === NUM_INIT) {
+        let newState = JSON.parse(JSON.stringify(state));
+        newState.num = action.value;
+        return newState;
+      }
     return state;
   }

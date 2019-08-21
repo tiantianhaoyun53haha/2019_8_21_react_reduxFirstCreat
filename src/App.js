@@ -5,7 +5,7 @@ import {  connect } from "react-redux";
 // 不用引入常量了，因为已经封装到action器里面了
 // import {NUM_ADD,NUM_SUBSTRACT} from "./store/actionTypes"
 //  3.引入action生成器
-import {numAdd,numSubstract} from "./store/actionCreator"
+import {numAdd,numSubstract,numInit} from "./store/actionCreator"
 // 加组件
 class AddBtn extends Component{
   render(){
@@ -14,6 +14,8 @@ class AddBtn extends Component{
     )
   }
 }
+// 在App.js  生命周期中开始使用 
+
 // 减组件
 class SubtractBtn extends Component{
   render(){
@@ -26,6 +28,10 @@ class SubtractBtn extends Component{
 
 
 class App extends Component {
+  componentDidMount() {
+    // 发送请求 初始化数据
+    this.props.numInit()
+  }
   render() {
     return (
       <div>
@@ -60,6 +66,9 @@ const mapPropsToDispatch=(dispatch)=>{
     },
     Subtract:()=>{
       dispatch(numSubstract())
+    },
+    numInit:()=>{
+      dispatch(numInit());
     }
 
   }
