@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 // 1 App 要接收 store中的数据
 import {  connect } from "react-redux";
+// 2.引入actions中的常量
+import {NUM_ADD,NUM_SUBSTRACT} from "./store/actionTypes"
 
 // 加组件
 class AddBtn extends Component{
@@ -52,13 +54,13 @@ const mapPropsToDispatch=(dispatch)=>{
       // 开始派发行为
       dispatch({
         value:1,
-        type:"num_add"
+        type:"NUM_ADD"
       })
     },
     Subtract:()=>{
       dispatch({
         value:1,
-        type:"num_Subtract"
+        type:"NUM_SUBSTRACT"
       })
     }
 

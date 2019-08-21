@@ -1,4 +1,4 @@
-
+import {NUM_ADD,NUM_SUBSTRACT} from "../actionTypes"
 // 1 定义默认数据
 const defaultState = {
     num: 101,
@@ -12,14 +12,14 @@ const defaultState = {
     // 必须要返回 state
 
     // 行为的判断,注意是判断行为
-    if(action.type==="num_add"){
+    if(action.type==="NUM_ADD"){
       // 1.深拷贝
       let newState=JSON.parse(JSON.stringify(state));
       newState.num +=action.value;
       // 把新的数据return出去
     return newState;
 
-    }else if(action.type==="num_Subtract"){
+    }else if(action.type==="NUM_SUBSTRACT"){
       let newState=JSON.parse(JSON.stringify(state));
       newState.num -=action.value;
       // 把新的数据return出去
