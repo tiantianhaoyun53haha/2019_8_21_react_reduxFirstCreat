@@ -2,8 +2,10 @@ import React, { Component, Fragment } from 'react';
 // 1 App 要接收 store中的数据
 import {  connect } from "react-redux";
 // 2.引入actions中的常量
-import {NUM_ADD,NUM_SUBSTRACT} from "./store/actionTypes"
-
+// 不用引入常量了，因为已经封装到action器里面了
+// import {NUM_ADD,NUM_SUBSTRACT} from "./store/actionTypes"
+//  3.引入action生成器
+import {numAdd,numSubstract} from "./store/actionCreator"
 // 加组件
 class AddBtn extends Component{
   render(){
@@ -52,16 +54,11 @@ const mapPropsToDispatch=(dispatch)=>{
   return{
     numAdd:()=>{
       // 开始派发行为
-      dispatch({
-        value:1,
-        type:"NUM_ADD"
-      })
+      // numAdd()调用添加数据的函数
+      dispatch(numAdd())
     },
     Subtract:()=>{
-      dispatch({
-        value:1,
-        type:"NUM_SUBSTRACT"
-      })
+      dispatch(numSubstract())
     }
 
   }
