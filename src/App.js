@@ -41,10 +41,11 @@ class App extends Component {
 
 // 3 定义一个字典对象 映射对象
 const mapPropsToState=(state)=>{
+  console.log(state)
   return{
     // 组件中要使用的属性名:仓库的数据
-    num123:state.num,
-    date:state.date
+    num123:state.fruitReducer.num,
+    date:state.fruitReducer.date
 
   }
 }
